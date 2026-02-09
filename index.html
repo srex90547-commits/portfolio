@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REX S | Interior Designer</title>
+  <meta name="description" content="REX S - Interior Designer Portfolio | Bengaluru, India" />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1620;
+      --text:#e8eef6;
+      --muted:#9fb0c3;
+      --line:rgba(255,255,255,0.08);
+      --accent:#3aa6ff;
+      --accent2:#00ffd5;
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 18px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family: "Segoe UI",system-ui,-apple-system,Arial,sans-serif;}
+    body{background:radial-gradient(900px 600px at 15% 15%, rgba(58,166,255,0.18), transparent 55%),
+         radial-gradient(900px 600px at 80% 20%, rgba(0,255,213,0.12), transparent 55%),
+         var(--bg);
+         color:var(--text);
+         overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none;}
+    .container{width:min(1100px, 92%);margin:0 auto;}
+
+    /* NAV */
+    nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(11,15,20,0.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+    }
+    .logo{
+      display:flex;gap:10px;align-items:center;
+      font-weight:800;letter-spacing:0.5px;
+    }
+    .logo-badge{
+      width:40px;height:40px;border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      display:grid;place-items:center;
+      color:#051018;font-weight:900;
+      box-shadow: var(--shadow);
+    }
+    .nav-links{
+      display:flex;gap:18px;align-items:center;
+    }
+    .nav-links a{
+      color:var(--muted);
+      font-weight:600;
+      padding:10px 12px;
+      border-radius:14px;
+      transition:0.2s;
+    }
+    .nav-links a:hover{background:rgba(255,255,255,0.06);color:var(--text);}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.04);
+      color:var(--text);
+      font-weight:700;
+      transition:0.25s;
+      cursor:pointer;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      border-color: rgba(58,166,255,0.45);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+    }
+    .btn-primary{
+      border:none;
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#06111a;
+      font-weight:900;
+    }
+
+    /* HERO */
+    header{
+      padding:58px 0 22px;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:26px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;inset:-1px;
+      background: radial-gradient(600px 260px at 15% 10%, rgba(58,166,255,0.16), transparent 65%),
+                  radial-gradient(600px 260px at 80% 40%, rgba(0,255,213,0.10), transparent 65%);
+      pointer-events:none;
+    }
+    .hero h1{
+      font-size: clamp(30px, 4vw, 44px);
+      line-height:1.08;
+      margin-bottom:12px;
+      position:relative;
+    }
+    .hero p{
+      color:var(--muted);
+      font-size: 16px;
+      line-height:1.7;
+      margin-bottom:18px;
+      position:relative;
+    }
+    .hero .tag{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.03);
+      color:var(--muted);
+      font-weight:700;
+      margin-bottom:16px;
+      position:relative;
+      width:fit-content;
+    }
+    .tag-dot{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+    }
+    .hero-actions{
+      display:flex;gap:12px;flex-wrap:wrap;
+      position:relative;
+    }
+
+    .side-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:22px;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .mini{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.02);
+    }
+    .mini h3{font-size:14px;color:var(--muted);font-weight:800;margin-bottom:6px;}
+    .mini p{font-size:15px;font-weight:800;}
+    .mini a{color:var(--accent);font-weight:900;}
+
+    /* SECTIONS */
+    section{padding:26px 0;}
+    .section-title{
+      display:flex;align-items:end;justify-content:space-between;
+      gap:14px;
+      margin-bottom:14px;
+    }
+    .section-title h2{
+      font-size: 22px;
+      letter-spacing:0.2px;
+    }
+    .section-title span{
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 18px 55px rgba(0,0,0,0.28);
+      transition:0.25s;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(58,166,255,0.35);
+    }
+
+    .pill{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.02);
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+      margin:6px 6px 0 0;
+    }
+
+    /* PROJECTS */
+    .project{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .project .thumb{
+      height:180px;
+      border-radius:18px;
+      border:1px dashed rgba(255,255,255,0.18);
+      background:
+        radial-gradient(500px 200px at 20% 30%, rgba(58,166,255,0.18), transparent 60%),
+        radial-gradient(500px 200px at 80% 50%, rgba(0,255,213,0.12), transparent 60%),
+        rgba(255,255,255,0.02);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-weight:900;
+      letter-spacing:0.3px;
+      text-align:center;
+      padding:12px;
+    }
+    .project h3{font-size:18px;}
+    .project p{color:var(--muted);line-height:1.6;}
+
+    /* FOOTER */
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      margin-top:18px;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 900px){
+      .hero{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr;}
+      .grid-2{grid-template-columns:1fr;}
+      .nav-links{display:none;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">
+        <div class="logo-badge">RS</div>
+        <div>
+          <div style="font-weight:900;">REX S</div>
+          <div style="color:var(--muted);font-weight:700;font-size:13px;">Interior Designer • Bengaluru</div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="btn btn-primary" href="#contact">Hire Me</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="container hero">
+      <div class="hero-card">
+        <div class="tag"><span class="tag-dot"></span> Available for Interior Projects</div>
+
+        <h1>
+          Hi, I’m <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">REX S</span><br>
+          Interior Designer
+        </h1>
+
+        <p>
+          I am an interior designer with 2 years of personal experience, and I have completed 1 month of internship.
+          I design modern and functional interiors for homes and commercial spaces with premium detailing.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:7826065905">Call Now</a>
+          <a class="btn" target="_blank" href="https://wa.me/917826065905">WhatsApp</a>
+          <a class="btn" target="_blank" href="https://www.linkedin.com/in/rex-s-3853b9306">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="mini">
+          <h3>Location</h3>
+          <p>#287 shoubayoga layout anagalapura Bengaluru 560064, India</p>
+        </div>
+        <div class="mini">
+          <h3>Specialization</h3>
+          <p>•BHK <br>
+
+• Commercial Interiors<br>
+
+• Interiors <br>
+
+• floor plain </p>
+        </div>
+        <div class="mini">
+          <h3>Contact</h3>
+          <p><a href="tel:7826065905">+91 78260 65905</a></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <span>Professional Interior Design</span>
+      </div>
+
+      <div class="card">
+        <p style="color:var(--muted);line-height:1.8;font-size:16px;">
+          I’m Rex S, an Interior Designer based in Bengaluru, India. I have 2 years of personal experience and have also completed
+          a 1-month internship. I focus on creating clean, modern, and premium interior spaces with a strong balance of aesthetics
+          and functionality. I work on complete interior projects for homes and commercial spaces.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">
+        <h2>Skills & Tools</h2>
+        <span>Software + Design Skills</span>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="margin-bottom:10px;">3D & Rendering</h3>
+          <div>
+            <span class="pill">SketchUp</span>
+            <span class="pill">V-Ray</span>
+            <span class="pill">Enscape</span>
+            <span class="pill">3ds Max</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:10px;">Planning & Drafting</h3>
+          <div>
+            <span class="pill">AutoCAD</span>
+            <span class="pill">Space Planning</span>
+            <span class="pill">2D Layouts</span>
+            <span class="pill">Furniture Planning</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:10px;">Web / Tech</h3>
+          <div>
+            <span class="pill">HTML</span>
+            <span class="pill">  css   </span>
+            <span class="pill">  python  </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <span>Interior Design Work</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="card project">
+          <div class="thumb">2BHK Interior Project<br></div>
+          <div>
+            <h3>2BHK Interior Design</h3>
+            <p>
+              Complete interior design for a 2BHK home with modern layout planning, premium finishes, and space optimization.
+              If you want full interior work, feel free to contact me.
+            </p>
+          </div>
+        </div>
+
+        <div class="card project">
+          <div class="thumb">Commercial Interior Project<br></div>
+          <div>
+            <h3>Commercial Interior Design</h3>
+            <p>
+              Interior design for commercial spaces with clean aesthetics, functional zoning, and professional detailing.
+              All interior works are done here — contact me for your project.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;" class="card">
+        <h3 style="margin-bottom:8px;">click to view images</h3>
+<iframe 
+  src="file:///C:/Users/REX%20S.DESKTOP-JGPCMFC/Desktop/img.html" 
+  width="100%" 
+  height="500"
+  style="border:none;">
+</iframe>
+
+        <p style="color:var(--muted);line-height:1.7;">
+ 
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-title">
+        <h2>Education</h2>
+        <span>Academic Background</span>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>10th</h3>
+          <p style="color:var(--muted);margin-top:6px;line-height:1.7;">
+            St Theresa Bacq Public School<br>
+            <b style="color:var(--text);">Year:</b> 2023
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>12th</h3>
+          <p style="color:var(--muted);margin-top:6px;line-height:1.7;">
+            United Composite PU College<br>
+            <b style="color:var(--text);">Year:</b> 2025
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>BCA</h3>
+          <p style="color:var(--muted);margin-top:6px;line-height:1.7;">
+            Kristu Jayanti University<br>
+            <b style="color:var(--text);">Year:</b> 2028
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <span>Let’s Work Together</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="margin-bottom:10px;">Quick Contact</h3>
+          <p style="color:var(--muted);line-height:1.8;">
+            📍 Bengaluru, India<br>
+            📞 <a style="color:var(--accent);font-weight:900;" href="tel:7826065905">+91 78260 65905</a><br>
+            🔗 <a style="color:var(--accent);font-weight:900;" target="_blank" href="https://www.linkedin.com/in/rex-s-3853b9306">LinkedIn Profile</a><br>
+            💬 <a style="color:var(--accent);font-weight:900;" target="_blank" href="https://wa.me/917826065905">WhatsApp Chat</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:10px;">Message (Copy & Send)</h3>
+          <p style="color:var(--muted);line-height:1.8;">
+            Hello Rex, I want interior design work for my home/commercial space. Please share details and quotation.
+          </p>
+          <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="copyMsg()">Copy Message</button>
+            <a class="btn" target="_blank" href="https://wa.me/917826065905">Send on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> REX S • Interior Designer • Bengaluru, India
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function copyMsg(){
+      const text = "Hello Rex, I want interior design work for my home/commercial space. Please share details and quotation.";
+      navigator.clipboard.writeText(text).then(()=>{
+        alert("Message copied! Now paste it in WhatsApp.");
+      });
+    }
+  </script>
+
+</body>
+</html>
